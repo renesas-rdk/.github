@@ -20,6 +20,7 @@ Open-source ROS 2 packages and tools for building robotics applications on the *
 
 | Category | What's Inside |
 |---|---|
+| [**Linux Kernel & Build Tools**](#linux-kernel--build-tools) | Linux kernel sources, device tree support, BSP/build system integration, cross-compilation tools |
 | [**AI Models & Apps**](#ai-models-drp-ai) | DRP-AI inference, object detection, pose estimation, ROS 2 integration |
 | [**Robot Hardware**](#robot-hardware) | Piper Arm, SO ARM101, INSPIRE RH56 Hand, RuiYan RH2 Hand, combined systems |
 | [**Demos & Simulation**](#demos) | End-to-end demos, MuJoCo simulation |
@@ -27,6 +28,30 @@ Open-source ROS 2 packages and tools for building robotics applications on the *
 
 > [!NOTE]
 > Click on the **triangular arrows** (&#9654;) next to each section below to expand and view the repository list.
+
+---
+
+## Linux Kernel & Build Tools
+<details>
+<summary>Linux kernel sources and build utilities for RZ/V2H RDK development.</summary>
+<table>
+<tr>
+<th> Repository </th>
+<th> URL </th>
+<th> Description </th>
+</tr>
+<tr>
+ <td> linux-rz </td>
+ <td> https://github.com/Renesas-SST/linux-rz/tree/ubuntu/rz-v2h-rdk </td>
+ <td> Linux kernel source for the RZ/V2H RDK platform </td>
+</tr>
+<tr>
+ <td> rz-utils </td>
+ <td> https://github.com/Renesas-SST/rz-utils/tree/ubuntu/rz-v2h-rdk </td>
+ <td> Collection of utilities for various workflows related to Renesas RZ-based devices </td>
+</tr>
+</table>
+</details>
 
 ---
 
