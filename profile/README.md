@@ -23,8 +23,9 @@ Open-source ROS 2 packages and tools for building robotics applications on the *
 | [**Linux Kernel & Build Tools**](#linux-kernel--build-tools) | Linux kernel sources, device tree support, BSP/build system integration, cross-compilation tools |
 | [**AI Models & Apps**](#ai-models-drp-ai) | DRP-AI inference, object detection, pose estimation, ROS 2 integration |
 | [**Robot Hardware**](#robot-hardware) | Piper Arm, SO ARM101, INSPIRE RH56 Hand, RuiYan RH2 Hand, combined systems |
-| [**Demos & Simulation**](#demos) | End-to-end demos, MuJoCo simulation |
+| [**ROS2 Demos & Simulation**](#ros2-demos) | End-to-end demos, MuJoCo simulation |
 | [**Firmware, Tools & Docs**](#rzv2h-firmware--rtos) | RTOS demos, drivers, utilities, documentation |
+| [**Demos and Use Cases**](#demos-and-use-cases) | Demos and use cases for various applications, including drone PX4 autopilot |
 
 > [!NOTE]
 > Click on the **triangular arrows** (&#9654;) next to each section below to expand and view the repository list.
@@ -325,7 +326,7 @@ Open-source ROS 2 packages and tools for building robotics applications on the *
 
 ---
 
-## Demos
+## ROS2 Demos
 <details>
 <summary>End-to-end demonstration packages showcasing the platform capabilities.</summary>
 <table>
@@ -465,4 +466,44 @@ Open-source ROS 2 packages and tools for building robotics applications on the *
  <td> Workspace manifests and common utilities for ROS 2 demos </td>
 </tr>
 </table>
+</details>
+
+## Demos And Use Cases
+
+Below is the list of available demos and use cases for the RZ/V2H RDK. Each demo lists the repositories required to build and run it.
+
+---
+
+### Drone Autopilot PX4 Demo
+
+<details>
+<summary>PX4 Autopilot software on RZ/V2H with FreeRTOS.</summary>
+<table>
+<tr>
+<th> Repository </th>
+<th> Branch </th>
+<th> URL </th>
+<th> Description </th>
+</tr>
+<tr>
+ <td> rzv2h_drone_px4 </td>
+ <td> main </td>
+ <td> https://github.com/renesas-rdk/rzv2h_drone_px4 </td>
+ <td> PX4 Autopilot Software for rzv2h freertos </td>
+</tr>
+<tr>
+ <td> PX4-Autopilot </td>
+ <td> feature/rzv2h-freertos </td>
+ <td> https://github.com/renesas-rdk/PX4-Autopilot/tree/feature/rzv2h-freertos </td>
+ <td> PX4 Autopilot Software </td>
+</tr>
+<tr>
+ <td> Micro-XRCE-DDS-Agent </td>
+ <td> feature/rzv2h-rpmsg-transport </td>
+ <td> https://github.com/renesas-rdk/Micro-XRCE-DDS-Agent/tree/feature/rzv2h-rpmsg-transport </td>
+ <td> Micro XRCE-DDS Agent respository </td>
+</tr>
+</table>
+
+For setup instructions and usage, refer to the [PX4 Autopilot Software for RZ/V2H README.md](https://github.com/renesas-rdk/rzv2h_drone_px4/blob/main/README.md).
 </details>
