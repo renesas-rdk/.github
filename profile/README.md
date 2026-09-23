@@ -9,7 +9,7 @@
 
 <img src="../images/hero.webp" alt="Renesas - humanoid robots in a warehouse" width="100%">
 
-# Renesas Robotics & Edge-AI Development Platforms
+# Renesas Robotics & Physical AI Development Platforms
 
 Open-source ROS 2 packages, AI model libraries, BSP sources, and tools for building robotics applications on **Renesas development boards**.
 
