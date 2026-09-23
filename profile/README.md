@@ -1,509 +1,158 @@
-<img src="../banner.png">
+<!--
+  Maintainer notes - adding a new board:
+    1. Add a column to "Supported Boards", "Sample Applications" and "Key Repositories > Platform-Specific".
+    2. Put a transparent, cropped board photo (~640 px wide) in images/boards/.
+    3. Follow the naming convention below (<family>_<function> for board-specific repos).
+    4. Add the board's manifests under ros2_demo_workspace/vcs_manifests/<board>/.
+  Platform-neutral repositories need no change unless their support status differs.
+-->
 
-# Renesas Repositories for RZ/V2H Robotic Development Kit (RDK)
+<img src="../images/hero.webp" alt="Renesas - humanoid robots in a warehouse" width="100%">
 
-Open-source ROS 2 packages and tools for building robotics applications on the **Renesas RZ/V2H** platform with DRP-AI hardware acceleration.
+# Renesas Robotics & Edge-AI Development Platforms
 
-<div align="center">
-  <img src="../rdk_angle.png" alt="RDK Angle" width="500">
-</div>
+Open-source ROS 2 packages, AI model libraries, BSP sources, and tools for building robotics applications on **Renesas development boards**.
 
-## Online Resources
+Most application, robot-hardware, and simulation packages are **platform-neutral** and shared across boards. Only the BSP, the AI inference backend, and a few board-specific features differ per board.
 
-**Renesas Official RZ/V2H RDK Website**: [WS125-V2HRDKREFZ](https://www.renesas.com/ws125-v2hrdkrefz)
+## 🖥️ Supported Boards
 
-**User Manual**: [RZ/V2H RDK Documentation (Online)](https://renesas-rdk.github.io/rzv2h_rdk_documentation/latest/index.html)
+> [!IMPORTANT]
+> **Start here.** Pick your board, grab the **latest release**, and follow the **Quick Setup Guide** to boot Ubuntu and run your first sample application.
+
+<table>
+<tr>
+<td width="50%" align="center" valign="top">
+
+<h3>RZ/V2H Robotic Development Kit (RDK)</h3>
+
+<img src="../images/boards/rzv2h_rdk.png" alt="RZ/V2H RDK" width="320">
+
+<a href="https://github.com/renesas-rdk/rzv2h_rdk_documentation/releases/latest"><img src="https://img.shields.io/github/v/release/renesas-rdk/rzv2h_rdk_documentation?style=for-the-badge&label=Latest%20release&color=E4002B&logo=github&logoColor=white" alt="Latest release"></a>
+<br>
+<a href="https://renesas-rdk.github.io/rzv2h_rdk_documentation/latest/index.html"><img src="https://img.shields.io/badge/User_Manual-2A289D?style=for-the-badge&logo=readthedocs&logoColor=white" alt="User Manual"></a>
+<a href="https://renesas-rdk.github.io/rzv2h_rdk_documentation/latest/chapter-1/quick_setup_guide.html"><img src="https://img.shields.io/badge/Quick_Setup-2A289D?style=for-the-badge&logo=rocket&logoColor=white" alt="Quick Setup"></a>
+
+</td>
+<td width="50%" align="center" valign="top">
+
+<h3>R-Car V4H Sparrow Hawk (SH)</h3>
+
+<img src="../images/boards/rcarv4h_sh.png" alt="R-Car V4H Sparrow Hawk" width="320">
+
+<a href="https://github.com/renesas-rdk/rcarv4h_sh_documentation/releases/latest"><img src="https://img.shields.io/github/v/release/renesas-rdk/rcarv4h_sh_documentation?style=for-the-badge&label=Latest%20release&color=E4002B&logo=github&logoColor=white" alt="Latest release"></a>
+<br>
+<a href="https://renesas-rdk.github.io/rcarv4h_sh_documentation/latest/index.html"><img src="https://img.shields.io/badge/User_Manual-2A289D?style=for-the-badge&logo=readthedocs&logoColor=white" alt="User Manual"></a>
+<a href="https://renesas-rdk.github.io/rcarv4h_sh_documentation/latest/chapter-1/quick_setup_guide/quick_setup_guide.html"><img src="https://img.shields.io/badge/Quick_Setup-2A289D?style=for-the-badge&logo=rocket&logoColor=white" alt="Quick Setup"></a>
+
+</td>
+</tr>
+<tr>
+<td valign="top">
+
+⚙️ <b>SoC:</b> RZ/V2H - 4× Cortex-A55, 2× Cortex-R8, Cortex-M33<br>
+🧠 <b>AI:</b> DRP-AI3, 8 dense / 80 sparse TOPS<br>
+🐧 <b>OS:</b> Ubuntu 24.04 · ROS 2 Jazzy
+
+<b>🚀 Get started</b>
+
+<ol>
+<li>📥 Download the <b>Software Package</b> from the <a href="https://github.com/renesas-rdk/rzv2h_rdk_documentation/releases/latest">latest release</a></li>
+<li>💾 Flash and boot the board - <a href="https://renesas-rdk.github.io/rzv2h_rdk_documentation/latest/chapter-1/quick_setup_guide.html">Quick Setup Guide</a></li>
+<li>🛠️ Set up cross-compilation - <a href="https://renesas-rdk.github.io/rzv2h_rdk_documentation/latest/chapter-4/development_guide/cross_build_overview.html">Cross-build Guide</a></li>
+<li>🧩 Build a sample application - <a href="https://github.com/renesas-rdk/ros2_demo_workspace/tree/main/vcs_manifests/rz-v2h">workspace manifests</a></li>
+</ol>
+
+📦 <a href="https://www.renesas.com/ws125-v2hrdkrefz">Product page</a> · 📝 <a href="https://github.com/renesas-rdk/rzv2h_rdk_documentation/releases">All releases</a>
+
+</td>
+<td valign="top">
+
+⚙️ <b>SoC:</b> R-Car V4H - 4× Cortex-A76, 3× Cortex-R52<br>
+🧠 <b>AI:</b> 29.5 dense TOPS<br>
+🐧 <b>OS:</b> Ubuntu 24.04 · ROS 2 Jazzy
+
+<b>🚀 Get started</b>
+
+<ol>
+<li>📥 Download the <b>Software Package</b> from the <a href="https://github.com/renesas-rdk/rcarv4h_sh_documentation/releases/latest">latest release</a></li>
+<li>💾 Flash and boot the board - <a href="https://renesas-rdk.github.io/rcarv4h_sh_documentation/latest/chapter-1/quick_setup_guide/quick_setup_guide.html">Quick Setup Guide</a></li>
+<li>🛠️ Set up cross-compilation - <a href="https://renesas-rdk.github.io/rcarv4h_sh_documentation/latest/chapter-4/development_guide/cross_build_overview.html">Cross-build Guide</a></li>
+<li>🧩 Build a sample application - <a href="https://github.com/renesas-rdk/ros2_demo_workspace/tree/main/vcs_manifests/rcar-v4h">workspace manifests</a></li>
+</ol>
+
+📦 <a href="https://www.renesas.com/en/design-resources/partners/retronix/sparrow-hawk-r-car-v4h-high-performance-ai-single-board-computer-sbc">Product page</a> · 📝 <a href="https://github.com/renesas-rdk/rcarv4h_sh_documentation/releases">All releases</a>
+
+</td>
+</tr>
+</table>
 
 ---
 
-## Quick Navigation
+## 🎬 Sample Applications
 
-| Category | What's Inside |
+<table>
+<tr>
+<td align="center"><img src="../images/sample_apps/hand_landmark.jpg" width="200"><br><sub>Hand Landmark Estimation</sub></td>
+<td align="center"><img src="../images/sample_apps/static_object_detection.jpg" width="200"><br><sub>Static Object Detection</sub></td>
+<td align="center"><img src="../images/sample_apps/rock_paper_scissors.jpg" width="200"><br><sub>Rock-Paper-Scissors</sub></td>
+<td align="center"><img src="../images/sample_apps/dexhand.jpg" width="200"><br><sub>Vision-Based Dexterous Hand</sub></td>
+</tr>
+<tr>
+<td align="center"><img src="../images/sample_apps/dexhand_with_sensors.jpg" width="200"><br><sub>Dexterous Hand with Sensors</sub></td>
+<td align="center"><img src="../images/sample_apps/queens_hand.jpg" width="200"><br><sub>Queen's Hand (Chess Robot)</sub></td>
+<td align="center"><img src="../images/sample_apps/vision_based_grasping.jpg" width="200"><br><sub>Vision-Based Grasping</sub></td>
+<td align="center"><img src="../images/sample_apps/arm_teleoperation.jpg" width="200"><br><sub>Robotic Arm Teleoperation</sub></td>
+</tr>
+</table>
+
+Each cell links to the sample application guide in the board's User Manual and to the `vcs` manifest that pins every repository needed to build it (import with `vcs import src < <manifest>`).
+
+| Sample application | Main package | RZ/V2H RDK | R-Car V4H SH |
+|---|---|:---:|:---:|
+| Hand Landmark Estimation | `*_pose_estimation` | ✅ [Guide](https://renesas-rdk.github.io/rzv2h_rdk_documentation/latest/chapter-4/sample_apps/hand_landmark.html) · [Manifest](https://github.com/renesas-rdk/ros2_demo_workspace/blob/main/vcs_manifests/rz-v2h/hand_landmark_estimation.target.lock.repos) | ✅ [Guide](https://renesas-rdk.github.io/rcarv4h_sh_documentation/latest/chapter-4/sample_apps/hand_landmark.html) · [Manifest](https://github.com/renesas-rdk/ros2_demo_workspace/blob/main/vcs_manifests/rcar-v4h/hand_landmark_estimation.target.lock.repos) |
+| Static Object Detection | `*_object_detection` | ✅ [Guide](https://renesas-rdk.github.io/rzv2h_rdk_documentation/latest/chapter-4/sample_apps/static_object_detection.html) · [Manifest](https://github.com/renesas-rdk/ros2_demo_workspace/blob/main/vcs_manifests/rz-v2h/static_object_detection.target.lock.repos) | ✅ [Guide](https://renesas-rdk.github.io/rcarv4h_sh_documentation/latest/chapter-4/sample_apps/static_object_detection.html) · [Manifest](https://github.com/renesas-rdk/ros2_demo_workspace/blob/main/vcs_manifests/rcar-v4h/static_object_detection.target.lock.repos) |
+| Rock-Paper-Scissors | [renesas_demo_rps](https://github.com/renesas-rdk/renesas_demo_rps) | ✅ [Guide](https://renesas-rdk.github.io/rzv2h_rdk_documentation/latest/chapter-4/sample_apps/rock_paper_scissors.html) · [Manifest](https://github.com/renesas-rdk/ros2_demo_workspace/blob/main/vcs_manifests/rz-v2h/rock_paper_scissors.target.lock.repos) | ✅ [Guide](https://renesas-rdk.github.io/rcarv4h_sh_documentation/latest/chapter-4/sample_apps/rock_paper_scissors.html) · [Manifest](https://github.com/renesas-rdk/ros2_demo_workspace/blob/main/vcs_manifests/rcar-v4h/rock_paper_scissors.target.lock.repos) |
+| Vision-Based Dexterous Hand | [renesas_demo_dexhand](https://github.com/renesas-rdk/renesas_demo_dexhand) | ✅ [Guide](https://renesas-rdk.github.io/rzv2h_rdk_documentation/latest/chapter-4/sample_apps/dexhand.html) · [Manifest](https://github.com/renesas-rdk/ros2_demo_workspace/blob/main/vcs_manifests/rz-v2h/vision_based_dexterous_hand.target.lock.repos) | ✅ [Guide](https://renesas-rdk.github.io/rcarv4h_sh_documentation/latest/chapter-4/sample_apps/dexhand.html) · [Manifest](https://github.com/renesas-rdk/ros2_demo_workspace/blob/main/vcs_manifests/rcar-v4h/vision_based_dexterous_hand.target.lock.repos) |
+| Dexterous Hand with Sensors | [renesas_demo_dexhand_w_sensors](https://github.com/renesas-rdk/renesas_demo_dexhand_w_sensors) | ✅ [Guide](https://renesas-rdk.github.io/rzv2h_rdk_documentation/latest/chapter-4/sample_apps/dexhand_with_sensors.html) · [Manifest](https://github.com/renesas-rdk/ros2_demo_workspace/blob/main/vcs_manifests/rz-v2h/vision_based_dexterous_hand_with_sensors.target.lock.repos) | ✅ [Guide](https://renesas-rdk.github.io/rcarv4h_sh_documentation/latest/chapter-4/sample_apps/dexhand_with_sensors.html) · [Manifest](https://github.com/renesas-rdk/ros2_demo_workspace/blob/main/vcs_manifests/rcar-v4h/vision_based_dexterous_hand_with_sensors.target.lock.repos) |
+| Queen's Hand (Chess Robot) | [renesas_demo_queens_hand](https://github.com/renesas-rdk/renesas_demo_queens_hand) | ✅ [Guide](https://renesas-rdk.github.io/rzv2h_rdk_documentation/latest/chapter-4/sample_apps/queens_hand.html) · [Manifest](https://github.com/renesas-rdk/ros2_demo_workspace/blob/main/vcs_manifests/rz-v2h/queens_hand.target.lock.repos) | ✅ [Guide](https://renesas-rdk.github.io/rcarv4h_sh_documentation/latest/chapter-4/sample_apps/queens_hand.html) · [Manifest](https://github.com/renesas-rdk/ros2_demo_workspace/blob/main/vcs_manifests/rcar-v4h/queens_hand.target.lock.repos) |
+| Vision-Based Grasping | [renesas_vision_based_grasping](https://github.com/renesas-rdk/renesas_vision_based_grasping) | ✅ [Guide](https://renesas-rdk.github.io/rzv2h_rdk_documentation/latest/chapter-4/sample_apps/vision_based_grasping.html) · [Manifest](https://github.com/renesas-rdk/ros2_demo_workspace/blob/main/vcs_manifests/rz-v2h/vision_based_grasping.target.lock.repos) | ✅ [Guide](https://renesas-rdk.github.io/rcarv4h_sh_documentation/latest/chapter-4/sample_apps/vision_based_grasping.html) · [Manifest](https://github.com/renesas-rdk/ros2_demo_workspace/blob/main/vcs_manifests/rcar-v4h/vision_based_grasping.target.lock.repos) |
+| Robotic Arm Teleoperation | [rzv_playground](https://github.com/renesas-rdk/rzv_playground) | ✅ [Guide](https://renesas-rdk.github.io/rzv2h_rdk_documentation/latest/chapter-4/sample_apps/arm_teleoperation.html) · [Target](https://github.com/renesas-rdk/ros2_demo_workspace/blob/main/vcs_manifests/rz-v2h/vision_based_robotic_arm_teleoperation.target.lock.repos) / [Host](https://github.com/renesas-rdk/ros2_demo_workspace/blob/main/vcs_manifests/rz-v2h/vision_based_robotic_arm_teleoperation.host.lock.repos) manifests | - |
+| Drone Autopilot (PX4 on FreeRTOS) | [rzv2h_drone_px4](https://github.com/renesas-rdk/rzv2h_drone_px4) | ✅ [README](https://github.com/renesas-rdk/rzv2h_drone_px4/blob/main/README.md) | - |
+
+---
+
+## 📚 Key Repositories
+
+A selection of the most commonly used repositories. Browse [all repositories](https://github.com/orgs/renesas-rdk/repositories) for the complete list.
+
+> [!TIP]
+> 🏷️ **Repository naming convention**
+> - `rzv_*` - RZ/V specific
+> - `rcar_*` - R-Car V4H specific
+> - `renesas_*` and all other names - platform-neutral, works on every supported board
+
+### 🔧 Platform-Specific
+
+| Function | RZ/V2H RDK | R-Car V4H SH |
+|---|---|---|
+| 🐧 Linux kernel | [linux-rz](https://github.com/renesas-rdk/linux-rz/tree/ubuntu/rz-v2h-rdk) | [linux-sh](https://github.com/renesas-rdk/linux-sh/tree/ubuntu/rcar-v4h-sh) |
+| 🛠️ BSP build & deploy utilities | [rz-utils](https://github.com/renesas-rdk/rz-utils/tree/ubuntu/rz-v2h-rdk) | [rcar-utils](https://github.com/renesas-rdk/rcar-utils/tree/ubuntu/rcar-v4h-sh) |
+| 🧠 AI model base library | [rzv_model](https://github.com/renesas-rdk/rzv_model) | [rcar_model](https://github.com/renesas-rdk/rcar_model) |
+| 🎯 Object detection (ROS 2) | [rzv_object_detection](https://github.com/renesas-rdk/rzv_object_detection) | [rcar_object_detection](https://github.com/renesas-rdk/rcar_object_detection) |
+| ✋ Hand landmark estimation (ROS 2) | [rzv_pose_estimation](https://github.com/renesas-rdk/rzv_pose_estimation) | [rcar_pose_estimation](https://github.com/renesas-rdk/rcar_pose_estimation) |
+| 📖 User manual | [rzv2h_rdk_documentation](https://github.com/renesas-rdk/rzv2h_rdk_documentation) | [rcarv4h_sh_documentation](https://github.com/renesas-rdk/rcarv4h_sh_documentation) |
+
+Individual models (YOLOX, YOLOv8, MediaPipe, …) are packaged as `rzv_<model>` / `rcar_<model>`.
+
+### 🌐 Platform-Neutral
+
+| Repository | Description |
 |---|---|
-| [**Linux Kernel & Build Tools**](#linux-kernel--build-tools) | Linux kernel sources, device tree support, BSP/build system integration, cross-compilation tools |
-| [**AI Models & Apps**](#ai-models-drp-ai) | DRP-AI inference, object detection, pose estimation, ROS 2 integration |
-| [**Robot Hardware**](#robot-hardware) | Piper Arm, SO ARM101, INSPIRE RH56 Hand, RuiYan RH2 Hand, combined systems |
-| [**ROS2 Demos & Simulation**](#ros2-demos) | End-to-end demos, MuJoCo simulation |
-| [**Firmware, Tools & Docs**](#rzv2h-firmware--rtos) | RTOS demos, drivers, utilities, documentation |
-| [**Demos and Use Cases**](#demos-and-use-cases) | Demos and use cases for various applications, including drone PX4 autopilot |
-
-> [!NOTE]
-> Click on the **triangular arrows** (&#9654;) next to each section below to expand and view the repository list.
-
----
-
-## Linux Kernel & Build Tools
-<details>
-<summary>Linux kernel sources and build utilities for RZ/V2H RDK development.</summary>
-<table>
-<tr>
-<th> Repository </th>
-<th> URL </th>
-<th> Description </th>
-</tr>
-<tr>
- <td> linux-rz </td>
- <td> https://github.com/Renesas-SST/linux-rz/tree/ubuntu/rz-v2h-rdk </td>
- <td> Linux kernel source for the RZ/V2H RDK platform </td>
-</tr>
-<tr>
- <td> rz-utils </td>
- <td> https://github.com/Renesas-SST/rz-utils/tree/ubuntu/rz-v2h-rdk </td>
- <td> Collection of utilities for various workflows related to Renesas RZ-based devices </td>
-</tr>
-</table>
-</details>
-
----
-
-## AI Models (DRP-AI)
-<details>
-<summary>C++ packages for running AI inference on Renesas RZ/V processors with DRP-AI acceleration.</summary>
-<table>
-<tr>
-<th> Repository </th>
-<th> URL </th>
-<th> Description </th>
-</tr>
-<tr>
- <td> rzv_model </td>
- <td> https://github.com/renesas-rdk/rzv_model </td>
- <td> DRP-AI model abstractions and implementations for RZ/V platforms </td>
-</tr>
-<tr>
- <td> rzv_yolox </td>
- <td> https://github.com/renesas-rdk/rzv_yolox </td>
- <td> YOLOX object detection </td>
-</tr>
-<tr>
- <td> rzv_yolov8 </td>
- <td> https://github.com/renesas-rdk/rzv_yolov8 </td>
- <td> YOLOv8 object detection </td>
-</tr>
-<tr>
- <td> rzv_gold_yolo </td>
- <td> https://github.com/renesas-rdk/rzv_gold_yolo </td>
- <td> Gold-YOLO object detection </td>
-</tr>
-<tr>
- <td> rzv_rtmpose </td>
- <td> https://github.com/renesas-rdk/rzv_rtmpose </td>
- <td> RTMPose pose detection </td>
-</tr>
-<tr>
- <td> rzv_mediapipe </td>
- <td> https://github.com/renesas-rdk/rzv_mediapipe </td>
- <td> MediaPipe pose detection </td>
-</tr>
-<tr>
- <td> rzv_hrnetv2 </td>
- <td> https://github.com/renesas-rdk/rzv_hrnetv2 </td>
- <td> HRNetV2 pose detection </td>
-</tr>
-<tr>
- <td> rzv_model_evaluation </td>
- <td> https://github.com/renesas-rdk/rzv_model_evaluation </td>
- <td> Model evaluation with standard object detection metrics </td>
-</tr>
-<tr>
- <td> hand_models </td>
- <td> https://github.com/renesas-rdk/hand_models </td>
- <td> Hand detection & pose estimation model conversion (MMPose to ONNX) </td>
-</tr>
-</table>
-</details>
-
-## AI Applications (ROS 2)
-<details>
-<summary>ROS 2 nodes that integrate AI models into robotics pipelines.</summary>
-<table>
-<tr>
-<th> Repository </th>
-<th> URL </th>
-<th> Description </th>
-</tr>
-<tr>
- <td> rzv_object_detection </td>
- <td> https://github.com/renesas-rdk/rzv_object_detection </td>
- <td> Object detection nodes for static image and camera-based inference </td>
-</tr>
-<tr>
- <td> rzv_pose_estimation </td>
- <td> https://github.com/renesas-rdk/rzv_pose_estimation </td>
- <td> Hand landmark estimation combining hand detection with landmark analysis </td>
-</tr>
-<tr>
- <td> rzv_model_utils_ros2 </td>
- <td> https://github.com/renesas-rdk/rzv_model_utils_ros2 </td>
- <td> Utility library for integrating AI models into ROS 2 applications </td>
-</tr>
-</table>
-</details>
-
----
-
-## Robot Hardware
-
-<details>
-<summary><b>AgileX Piper Arm</b> — 6-DOF robotic arm</summary>
-<table>
-<tr>
-<th> Repository </th>
-<th> URL </th>
-<th> Description </th>
-</tr>
-<tr>
- <td> agilex_piper_arm_bringup </td>
- <td> https://github.com/renesas-rdk/agilex_piper_arm_bringup </td>
- <td> Bringup and operation of the Piper arm and gripper </td>
-</tr>
-<tr>
- <td> agilex_piper_ros2_control </td>
- <td> https://github.com/renesas-rdk/agilex_piper_ros2_control </td>
- <td> ros2_control hardware interface for the Piper arm and gripper </td>
-</tr>
-<tr>
- <td> agilex_piper_arm_description </td>
- <td> https://github.com/renesas-rdk/agilex_piper_arm_description </td>
- <td> URDF description files </td>
-</tr>
-<tr>
- <td> agilex_piper_controller </td>
- <td> https://github.com/renesas-rdk/agilex_piper_controller </td>
- <td> C++ controller (ported from original Python SDK) </td>
-</tr>
-<tr>
- <td> agilex_piper_utils </td>
- <td> https://github.com/renesas-rdk/agilex_piper_utils </td>
- <td> Utility nodes for message conversion and pose transformations </td>
-</tr>
-<tr>
- <td> agilex_piper_mujoco </td>
- <td> https://github.com/renesas-rdk/agilex_piper_mujoco </td>
- <td> MuJoCo simulation with ros2_control integration </td>
-</tr>
-</table>
-</details>
-
-<details>
-<summary><b>SO ARM101</b> — 6-DOF arm with STS3215 servo motors</summary>
-<table>
-<tr>
-<th> Repository </th>
-<th> URL </th>
-<th> Description </th>
-</tr>
-<tr>
- <td> so_arm101_bringup </td>
- <td> https://github.com/renesas-rdk/so_arm101_bringup </td>
- <td> Bringup with launch files, controller configs, and test scripts </td>
-</tr>
-<tr>
- <td> so_arm101_ros2_control </td>
- <td> https://github.com/renesas-rdk/so_arm101_ros2_control </td>
- <td> ros2_control hardware interface </td>
-</tr>
-<tr>
- <td> so_arm101_description </td>
- <td> https://github.com/renesas-rdk/so_arm101_description </td>
- <td> URDF and XACRO description files </td>
-</tr>
-<tr>
- <td> so_arm101_utils </td>
- <td> https://github.com/renesas-rdk/so_arm101_utils </td>
- <td> Utility nodes for message adaptation and conversion </td>
-</tr>
-</table>
-</details>
-
-<details>
-<summary><b>INSPIRE RH56 Hand</b> — 6-DOF dexterous hand</summary>
-<table>
-<tr>
-<th> Repository </th>
-<th> URL </th>
-<th> Description </th>
-</tr>
-<tr>
- <td> inspire_rh56_hand_bringup </td>
- <td> https://github.com/renesas-rdk/inspire_rh56_hand_bringup </td>
- <td> Bringup and operation </td>
-</tr>
-<tr>
- <td> inspire_rh56_hand_ros2_control </td>
- <td> https://github.com/renesas-rdk/inspire_rh56_hand_ros2_control </td>
- <td> ros2_control hardware interface via serial connection </td>
-</tr>
-<tr>
- <td> inspire_rh56_hand_description </td>
- <td> https://github.com/renesas-rdk/inspire_rh56_hand_description </td>
- <td> URDF description files </td>
-</tr>
-<tr>
- <td> inspire_rh56_dexhand </td>
- <td> https://github.com/renesas-rdk/inspire_rh56_dexhand </td>
- <td> Hardware interface for controlling the RH56 hand </td>
-</tr>
-<tr>
- <td> inspire_rh56_hand_utils </td>
- <td> https://github.com/renesas-rdk/inspire_rh56_hand_utils </td>
- <td> Gripper action adapter with configurable joint mapping </td>
-</tr>
-<tr>
- <td> inspire_rh56_urdf </td>
- <td> https://github.com/renesas-rdk/inspire_rh56_urdf </td>
- <td> URDF models and visualization tools (left/right configurations) </td>
-</tr>
-</table>
-</details>
-
-<details>
-<summary><b>RuiYan RH2 Hand</b> — 6-DOF dexterous hand</summary>
-<table>
-<tr>
-<th> Repository </th>
-<th> URL </th>
-<th> Description </th>
-</tr>
-<tr>
- <td> ruiyan_rh2_hand_bringup </td>
- <td> https://github.com/renesas-rdk/ruiyan_rh2_hand_bringup </td>
- <td> Bringup and operation </td>
-</tr>
-<tr>
- <td> ruiyan_rh2_hand_ros2_control </td>
- <td> https://github.com/renesas-rdk/ruiyan_rh2_hand_ros2_control </td>
- <td> ros2_control hardware interface via CAN bus </td>
-</tr>
-<tr>
- <td> ruiyan_rh2_hand_description </td>
- <td> https://github.com/renesas-rdk/ruiyan_rh2_hand_description </td>
- <td> URDF description files </td>
-</tr>
-<tr>
- <td> ruiyan_rh2_dexhand </td>
- <td> https://github.com/renesas-rdk/ruiyan_rh2_dexhand </td>
- <td> JointState to Rh6Cmd converter for hand control </td>
-</tr>
-<tr>
- <td> ruiyan_rh2_controller </td>
- <td> https://github.com/renesas-rdk/ruiyan_rh2_controller </td>
- <td> Controller adaptation for ARM64 targets </td>
-</tr>
-<tr>
- <td> ruiyan_rh2_urdf </td>
- <td> https://github.com/renesas-rdk/ruiyan_rh2_urdf </td>
- <td> URDF models and visualization tools (left/right configurations) </td>
-</tr>
-</table>
-</details>
-
-<details>
-<summary><b>Arm + Hand Systems</b> — Combined arm and hand packages</summary>
-<table>
-<tr>
-<th> Repository </th>
-<th> URL </th>
-<th> Description </th>
-</tr>
-<tr>
- <td> piper_arm_inspire_hand_bringup </td>
- <td> https://github.com/renesas-rdk/piper_arm_inspire_hand_bringup </td>
- <td> AgileX Piper arm + INSPIRE RH56 hand bringup </td>
-</tr>
-<tr>
- <td> piper_arm_ruiyan_hand_bringup </td>
- <td> https://github.com/renesas-rdk/piper_arm_ruiyan_hand_bringup </td>
- <td> AgileX Piper arm + RuiYan RH2 hand bringup </td>
-</tr>
-<tr>
- <td> arm_hand_control </td>
- <td> https://github.com/renesas-rdk/arm_hand_control </td>
- <td> Robotic hand control through gesture recognition and landmark tracking </td>
-</tr>
-</table>
-</details>
-
----
-
-## ROS2 Demos
-<details>
-<summary>End-to-end demonstration packages showcasing the platform capabilities.</summary>
-<table>
-<tr>
-<th> Repository </th>
-<th> URL </th>
-<th> Description </th>
-</tr>
-<tr>
- <td> rzv_playground </td>
- <td> https://github.com/renesas-rdk/rzv_playground </td>
- <td> Demonstration and teleoperation launch files for arm and hand systems </td>
-</tr>
-<tr>
- <td> rzv_demo_dexhand </td>
- <td> https://github.com/renesas-rdk/rzv_demo_dexhand </td>
- <td> Dexterous hand control with vision-based pose estimation </td>
-</tr>
-<tr>
- <td> rzv_demo_rps </td>
- <td> https://github.com/renesas-rdk/rzv_demo_rps </td>
- <td> Rock-paper-scissors gesture recognition translated into control commands </td>
-</tr>
-</table>
-</details>
-
-## Simulation (MuJoCo)
-<details>
-<summary>Physics simulation and ros2_control integration.</summary>
-<table>
-<tr>
-<th> Repository </th>
-<th> URL </th>
-<th> Description </th>
-</tr>
-<tr>
- <td> mujoco </td>
- <td> https://github.com/renesas-rdk/mujoco </td>
- <td> MuJoCo general-purpose physics simulator </td>
-</tr>
-<tr>
- <td> mujoco_sim_ros2 </td>
- <td> https://github.com/renesas-rdk/mujoco_sim_ros2 </td>
- <td> MuJoCo simulate app with ROS 2 integration </td>
-</tr>
-<tr>
- <td> mujoco_ros2_control </td>
- <td> https://github.com/renesas-rdk/mujoco_ros2_control </td>
- <td> MuJoCo ros2_control plugin </td>
-</tr>
-</table>
-</details>
-
----
-
-## RZ/V2H Firmware & RTOS
-<details>
-<summary>RTOS demos for the RZ/V2H multi-core processors (CR8, CM33).</summary>
-<table>
-<tr>
-<th> Repository </th>
-<th> URL </th>
-<th> Description </th>
-</tr>
-<tr>
- <td> rzv2h_rdk_blinky </td>
- <td> https://github.com/renesas-rdk/rzv2h_rdk_blinky </td>
- <td> LED blinky example for basic board validation </td>
-</tr>
-<tr>
- <td> rzv2h_rdk_cm33_rpmsg_linux_rtos_demo </td>
- <td> https://github.com/renesas-rdk/rzv2h_rdk_cm33_rpmsg_linux_rtos_demo </td>
- <td> CM33 RPMsg Linux-RTOS communication demo </td>
-</tr>
-<tr>
- <td> rzv2h_rdk_cr8_core0_rpmsg_linux_rtos_demo </td>
- <td> https://github.com/renesas-rdk/rzv2h_rdk_cr8_core0_rpmsg_linux_rtos_demo </td>
- <td> CR8 Core0 RPMsg Linux-RTOS communication demo </td>
-</tr>
-<tr>
- <td> rzv2h_rdk_cr8_core0_rpmsg_microros_demo </td>
- <td> https://github.com/renesas-rdk/rzv2h_rdk_cr8_core0_rpmsg_microros_demo </td>
- <td> CR8 Core0 micro-ROS communication via OpenAMP </td>
-</tr>
-<tr>
- <td> Micro-XRCE-DDS-Agent </td>
- <td> https://github.com/renesas-rdk/Micro-XRCE-DDS-Agent </td>
- <td> Micro XRCE-DDS Agent for micro-ROS communication </td>
-</tr>
-</table>
-</details>
-
-## Tools & Utilities
-<details>
-<summary>Supporting tools, drivers, and middleware.</summary>
-<table>
-<tr>
-<th> Repository </th>
-<th> URL </th>
-<th> Description </th>
-</tr>
-<tr>
- <td> rzv2h_opencv_accelerated_debs </td>
- <td> https://github.com/renesas-rdk/rzv2h_opencv_accelerated_debs </td>
- <td> OpenCV 4.6.0 with DRP hardware acceleration (.deb packages, Ubuntu 24.04 ARM64) </td>
-</tr>
-<tr>
- <td> foxglove_keypoint_publisher </td>
- <td> https://github.com/renesas-rdk/foxglove_keypoint_publisher </td>
- <td> Publish keypoints/landmarks/bounding boxes as Foxglove image annotations </td>
-</tr>
-<tr>
- <td> cartesian_controllers </td>
- <td> https://github.com/renesas-rdk/cartesian_controllers </td>
- <td> Cartesian controllers for the ROS 2 control framework </td>
-</tr>
-</table>
-</details>
-
-## Documentation & Workspace
-<details>
-<summary>Project documentation and workspace configuration.</summary>
-<table>
-<tr>
-<th> Repository </th>
-<th> URL </th>
-<th> Description </th>
-</tr>
-<tr>
- <td> rzv2h_rdk_documentation </td>
- <td> https://github.com/renesas-rdk/rzv2h_rdk_documentation </td>
- <td> User manual and technical documentation for the RDK </td>
-</tr>
-<tr>
- <td> ros2_demo_workspace </td>
- <td> https://github.com/renesas-rdk/ros2_demo_workspace </td>
- <td> Workspace manifests and common utilities for ROS 2 demos </td>
-</tr>
-</table>
-</details>
-
-## Demos And Use Cases
-
-Below is the list of available demos and use cases for the RZ/V2H RDK. Each demo lists the repositories required to build and run it.
-
----
-
-### Drone Autopilot PX4 Demo
-
-<details>
-<summary>PX4 Autopilot software on RZ/V2H with FreeRTOS.</summary>
-<table>
-<tr>
-<th> Repository </th>
-<th> Branch </th>
-<th> URL </th>
-<th> Description </th>
-</tr>
-<tr>
- <td> rzv2h_drone_px4 </td>
- <td> main </td>
- <td> https://github.com/renesas-rdk/rzv2h_drone_px4 </td>
- <td> PX4 Autopilot Software for rzv2h freertos </td>
-</tr>
-<tr>
- <td> PX4-Autopilot </td>
- <td> feature/rzv2h-freertos </td>
- <td> https://github.com/renesas-rdk/PX4-Autopilot/tree/feature/rzv2h-freertos </td>
- <td> PX4 Autopilot Software </td>
-</tr>
-<tr>
- <td> Micro-XRCE-DDS-Agent </td>
- <td> feature/rzv2h-rpmsg-transport </td>
- <td> https://github.com/renesas-rdk/Micro-XRCE-DDS-Agent/tree/feature/rzv2h-rpmsg-transport </td>
- <td> Micro XRCE-DDS Agent respository </td>
-</tr>
-</table>
-
-For setup instructions and usage, refer to the [PX4 Autopilot Software for RZ/V2H README.md](https://github.com/renesas-rdk/rzv2h_drone_px4/blob/main/README.md).
-</details>
+| 🧩 [ros2_demo_workspace](https://github.com/renesas-rdk/ros2_demo_workspace) | Per-board `vcs` manifests for every sample application - the recommended starting point |
+| 🐳 [ubuntu_xbuild_toolchains](https://github.com/renesas-rdk/ubuntu_xbuild_toolchains) | Docker-based ROS 2 cross-build environment for ARM64 boards |
+| 🔌 [renesas_model_utils_ros2](https://github.com/renesas-rdk/renesas_model_utils_ros2) | Helpers for integrating AI models into ROS 2 |
+| 🦾 [agilex_piper_arm](https://github.com/renesas-rdk/agilex_piper_arm) | AgileX Piper 6-DOF arm: bringup, description, ros2_control |
+| 🖐️ [inspire_rh56_hand](https://github.com/renesas-rdk/inspire_rh56_hand) | INSPIRE RH56 dexterous hand: bringup, description, ros2_control |
+| 🎮 [arm_hand_control](https://github.com/renesas-rdk/arm_hand_control) | Robotic hand control through gesture recognition and landmark tracking |
+| 🧪 [mujoco_sim_ros2](https://github.com/renesas-rdk/mujoco_sim_ros2) | MuJoCo simulation with ROS 2 integration |
